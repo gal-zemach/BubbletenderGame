@@ -1,0 +1,18 @@
+Event	ID	Name			Wwise Object Path	Notes
+	39031584	Play_Bubble			\Default Work Unit\Play_Bubble	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	122239222	bubble_00	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\20\{207EF08B-2A8F-D18D-3583-1EA1E2058E03}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_00		24096
+	175352606	bubble_07	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\62\{62CF3922-320E-3BEF-A555-245710BBAA5D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_07		27664
+	234845950	bubble_05	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\BE\{BE1B126D-7CCB-CD5C-1EBC-BA98F7F7F89C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_05		32260
+	367246201	bubble_04	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\17\{179C2C20-2690-2F7B-E723-29981A9D01D6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_04		67176
+	492711265	bubble_12	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\2E\{2E38E270-A1B2-8CD9-9CBC-5B978318F974}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_12		76316
+	644083643	bubble_08	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\9B\{9BB64B82-B11E-9E89-93C6-BD5D54BC84CA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_08		27664
+	659755043	bubble_06	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\26\{2612033A-E347-894B-145C-15159B12F196}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_06		46960
+	810883611	bubble_03	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\A2\{A29F7CCB-1C0F-40DB-7BD2-08DF236938F7}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_03		32260
+	860309632	bubble_10	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\B7\{B742E2EB-B748-5BA4-48E5-13B675518C29}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_10		75448
+	880191108	bubble_01	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\0E\{0ED38692-821F-83AD-329D-A027E095A7E2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_01		69096
+	925709432	bubble_11	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\3D\{3D08AAA2-63B1-8FDB-E6EC-67A373656D17}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_11		58352
+	1029533971	bubble_02	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\08\{08873CF0-89D9-3DDE-49D3-B0020AD5BE2D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_02		35016
+	1051349750	bubble_09	Y:\Documents\GitHub\games\BubbletenderGame\BubbletenderGame_WwiseProject\.cache\C3\{C3FA8B9B-7B35-8F72-FA84-799ACA23A743}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bubble\bubble_09		69016
+

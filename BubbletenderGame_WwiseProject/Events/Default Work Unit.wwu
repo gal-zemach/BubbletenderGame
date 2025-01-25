@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{FD49EE4E-6FC2-4533-B5DD-B5816BAB1893}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{FD49EE4E-6FC2-4533-B5DD-B5816BAB1893}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Bubble" ID="{528DF2C8-632C-47A0-9E4B-D2A1469422C1}">
+					<ChildrenList>
+						<Action Name="" ID="{15F60844-0D6B-467F-993E-63DFFAF35BF0}" ShortID="983865296">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Bubble" ID="{7A3657D1-85BF-4B98-B150-DFD9984406F3}" WorkUnitID="{EEDA1D8C-DAEC-4655-BB8B-F006FDF7F15C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
