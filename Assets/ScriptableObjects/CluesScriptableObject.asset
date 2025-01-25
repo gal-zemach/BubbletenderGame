@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e197f5d2a6af148f6adfce58ee91738f, type: 3}
+  m_Name: CluesScriptableObject
+  m_EditorClassIdentifier: 
+  glassTypeSprites:
+  - type: 1
+    sprite: {fileID: 5399653316150350906, guid: 72007255e5fdd1447966152440838fdb, type: 3}
+  - type: 2
+    sprite: {fileID: 8923653630949118806, guid: 0e60bec9e51093c4ab84af8b3742b173, type: 3}
+  - type: 3
+    sprite: {fileID: 5392193341554547668, guid: 41ea472656dd1204b897f70d09383e9d, type: 3}
+  drinkTypeSprites:
+  - type: 1
+    sprite: {fileID: -7972022385098347079, guid: b15aef4db6b786748b9394778415a1d1, type: 3}
+  - type: 2
+    sprite: {fileID: -2394566499471440437, guid: ea5db15148fec684e801e993c4dbedf4, type: 3}
+  - type: 3
+    sprite: {fileID: -1482401042170438625, guid: 83a2dbfb98696b341a9d05983026b5e5, type: 3}
+  garnishSprites:
+  - type: 1
+    sprite: {fileID: -6584779470778004171, guid: 116d088b7d8385f449a25ad6879e3cf6, type: 3}
+  - type: 2
+    sprite: {fileID: 555853841139532020, guid: a26008edfc95c9943b8afc7f82e3b788, type: 3}
+  - type: 3
+    sprite: {fileID: 7903013494529996543, guid: 7c59f4ac2bc7e6548bfc3be305085876, type: 3}
