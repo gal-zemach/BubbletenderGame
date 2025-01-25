@@ -23,15 +23,7 @@ public class BubbleSpawner : MonoBehaviour
 
     private void SpawnBubble(Vector3 worldPosition)
     {
-        // Instantiate(bubblePrefab, worldPosition, Quaternion.identity);
-        Instantiate(bubblePrefab, this.transform);
-        
-        // var pos = bubblePrefab.transform.position;
-        // pos.x = worldPosition.x;
-        // bubblePrefab.transform.position = pos;
-
-        worldPosition.z = 0;
-        bubblePrefab.transform.position = worldPosition;
+        GameObject newBubble = Instantiate(bubblePrefab, worldPosition, Quaternion.identity, this.transform);
     }
 
     private Vector3 GetMousePosition()

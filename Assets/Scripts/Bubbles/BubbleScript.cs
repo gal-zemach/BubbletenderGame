@@ -3,21 +3,24 @@ using UnityEngine;
 public class BubbleScript : MonoBehaviour
 {
     [Header("Bubble Movement")]
-    public float floatSpeed = 5f;
+    public float floatSpeed = 0.01f;
+    public float horizontalAmp = 0.01f;
+    public float horizontalSpeed = 1f;
 
     [Header("Bubble Collision")]
     public float overlapThresholdToCollect = 0.65f;
 
-    void Update()
+    void FixedUpdate()
     {
-        // FloatUpward();
+        FloatUpward();
     }
 
     private void FloatUpward()
     {
         var pos = transform.position;
         pos += Vector3.up * floatSpeed;
-        
+        pos += Vector3.right * horizontalAmp * Mathf.Cos(Time.fixedTime * horizontalSpeed * Mathf.PI);
+
         transform.position = pos;
     }
 
