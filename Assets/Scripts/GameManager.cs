@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     [Header("Clues")]
     public CluesSpawner cluesSpawner;
 
+    [Header("Bubbles")]
+    public BubbleSpawner bubblesSpawner;
+
     void Start()
     {
         
