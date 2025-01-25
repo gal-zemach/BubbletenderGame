@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dishbubble_Anim_0: 1857701879882774888
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
