@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class WaterScript : MonoBehaviour
 {
-    private float rotationSpeed = 10f;   // Rotation speed (degrees per second)
+    private float rotationSpeed = 8f;   // Rotation speed (degrees per second)
     private float maxRotationAngle = 5f; // Maximum rotation angle (degrees)
 
-    private void Update()
-    {
-        // Calculate the rotation angle based on time and speed
-        float rotationAngle = Mathf.Sin(Time.time * rotationSpeed) * maxRotationAngle;
+    private Vector3 initialPosition;
 
-        // Apply the rotation around the center of the sprite (default pivot)
-        RotateAroundCenter(rotationAngle);
+    void Start()
+    {
+        // Store the initial position from which the sprite will move
+        initialPosition = transform.position;
     }
 
-    void RotateAroundCenter(float angle)
+    void Update()
     {
-        // Apply rotation around the center of the sprite (default pivot in Unity)
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        // Apply rotation: Use Mathf.Sin to smoothly oscillate the rotation angle
+        float rotationAngle = Mathf.Sin(Time.time * rotationSpeed) * maxRotationAngle;
+        transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
     }
 }
