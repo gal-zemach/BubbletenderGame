@@ -1,2 +1,20 @@
 fileFormatVersion: 2
 guid: f62a82ed3f6cc48b1a8b7db659f1d81a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - feedbackText: {instanceID: 0}
+  - trackerText: {instanceID: 0}
+  - gameScript: {instanceID: 0}
+  - timerScript: {instanceID: 0}
+  - iconScript: {instanceID: 0}
+  - correctSprite: {instanceID: 0}
+  - incorrectSprite: {instanceID: 0}
+  - correctSequenceEvent: {fileID: 11400000, guid: c17203104704641f4b5ce06d367ea161, type: 2}
+  - incorrectSequenceEvent: {fileID: 11400000, guid: 4068e8afe466e47438f7added610c48e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
