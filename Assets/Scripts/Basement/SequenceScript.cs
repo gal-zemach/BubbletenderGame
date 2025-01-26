@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SequenceScript : MonoBehaviour
 {
     public TextMeshProUGUI feedbackText;
+    public TextMeshProUGUI trackerText;
     public MiniGameScript gameScript; 
     public TimerScript timerScript;
     public IconScript iconScript;
@@ -32,7 +33,7 @@ public class SequenceScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        feedbackText.text = "Press Space to Start";
+
     }
 
     // Update is called once per frame
@@ -72,6 +73,7 @@ public class SequenceScript : MonoBehaviour
 
         // Start the Script
         sequenceActive = true;
+        trackerText.text = successCount.ToString() + "/" + successTarget.ToString();
     }
 
     // Gather Player Input
@@ -119,7 +121,7 @@ public class SequenceScript : MonoBehaviour
            successCount++;
 
             // Change the Feedback Text
-            feedbackText.text = "Correct Sequence: " + successCount.ToString() + "/" + successTarget.ToString();
+            trackerText.text = successCount.ToString() + "/" + successTarget.ToString();
 
             // If the target number of successes has been completed, exit game
             if (successCount == successTarget)

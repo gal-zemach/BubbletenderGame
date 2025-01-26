@@ -28,7 +28,6 @@ public class TimerScript : MonoBehaviour
         currentTime = timeLimit;
         timerRunning = true;
         timerSlider.value = 1;
-        timerSlider.gameObject.SetActive(true);
     }
 
     public void StopTimer()

@@ -5,11 +5,12 @@ using UnityEngine.UI;
 public class UIScript : MonoBehaviour
 {
     public TextMeshProUGUI feedbackText;
+    public TextMeshProUGUI trackerText;
     public Slider timerSlider;
 
     public void HideUI()
     {
-        // feedbackText.gameObject.SetActive(false);
+        trackerText.gameObject.SetActive(false);
         timerSlider.gameObject.SetActive(false);
     }
 

@@ -1,21 +1,27 @@
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class MiniGameScript : MonoBehaviour
 {
     public IconScript iconScript;
-    public UIScript uiScript;
     public SequenceScript sequenceScript;
     public TimerScript timerScript;
     public TextMeshProUGUI feedbackText;
-    private bool gameActive = false;
+    public TextMeshProUGUI trackerText;
+    public Slider timerSlider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // When the scene starts, the UI is hidden
-        uiScript.HideUI();
+        // Hide Tracker + Timer on Entry
+        trackerText.gameObject.SetActive(false);
+        timerSlider.gameObject.SetActive(false);
+
+        // Show Instructional Text
+        feedbackText.text = "Press Space to Start";
+        feedbackText.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -29,17 +35,29 @@ public class MiniGameScript : MonoBehaviour
 
     void StartWashGame()
     {
-        gameActive = true;
-        uiScript.ShowUI();
+        // Hide Instructional Text
+        feedbackText.gameObject.SetActive(false);
+
+        // Show Tracker UI
+        timerSlider.gameObject.SetActive(true);
+        trackerText.gameObject.SetActive(true);
+
+        // Start Mini Game
         timerScript.StartTimer();
-        feedbackText.text = "Follow the Pattern";
         sequenceScript.RunSequence();  
     }
 
     public void OnSequenceCompleted (bool success)
     {
-        gameActive = false;
-        uiScript.HideUI();
+        // Stop Timer
         timerScript.StopTimer();
+
+        // Hide Tracker UI
+        timerSlider.gameObject.SetActive(false);
+        trackerText.gameObject.SetActive(false);
+        
+        // Show Feedback UI
+        feedbackText.gameObject.SetActive(true);
+       
     }
 }
