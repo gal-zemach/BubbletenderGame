@@ -182,6 +182,7 @@ MonoBehaviour:
   - {fileID: 6777287289172926444}
   - {fileID: 5437453412353790137}
   - {fileID: 7319545109843214553}
+  timeBetweenCluesAnimation: 0.35
 --- !u!1 &7788296424483996045
 GameObject:
   m_ObjectHideFlags: 0
