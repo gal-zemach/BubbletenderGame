@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HandAnimation : MonoBehaviour
+public class RightHandScript : MonoBehaviour
 {
     private float moveSpeed = 1f;        // Speed of movement
     private float moveDistance = 0f;     // Distance to move back and forth
