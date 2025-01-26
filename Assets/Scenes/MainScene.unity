@@ -779,6 +779,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4825162515714884281, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: correctSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 52e8e5ef1c7231243837c0cc79992e11, type: 3}
+    - target: {fileID: 4825162515714884281, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: incorrectSprite
+      value: 
+      objectReference: {fileID: -7775836056138046689, guid: 65e054b2b290f6b458660cc5709fda64, type: 3}
     - target: {fileID: 7742135577039464508, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
       propertyPath: gameManager
       value: 
@@ -787,6 +795,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasementParent
       objectReference: {fileID: 0}
+    - target: {fileID: 8484067377427123830, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: arrow
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a9d1417d69b7af4d9d949ccf4a2e10a, type: 3}
+    - target: {fileID: 8484067377427123830, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: upIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a9d1417d69b7af4d9d949ccf4a2e10a, type: 3}
+    - target: {fileID: 8484067377427123830, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: downIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a9d1417d69b7af4d9d949ccf4a2e10a, type: 3}
+    - target: {fileID: 8484067377427123830, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: leftIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a9d1417d69b7af4d9d949ccf4a2e10a, type: 3}
+    - target: {fileID: 8484067377427123830, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: rightIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a9d1417d69b7af4d9d949ccf4a2e10a, type: 3}
+    - target: {fileID: 8484067377427123830, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: arrowBasic
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a9d1417d69b7af4d9d949ccf4a2e10a, type: 3}
+    - target: {fileID: 8484067377427123830, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: arrowCorrect
+      value: 
+      objectReference: {fileID: 21300000, guid: 52e8e5ef1c7231243837c0cc79992e11, type: 3}
+    - target: {fileID: 8484067377427123830, guid: 41647efd48b614207a7e2e4dce0935f4, type: 3}
+      propertyPath: arrowIncorrect
+      value: 
+      objectReference: {fileID: -7775836056138046689, guid: 65e054b2b290f6b458660cc5709fda64, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
