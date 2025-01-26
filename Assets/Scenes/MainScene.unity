@@ -800,10 +800,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 37898073}
     m_Modifications:
-    - target: {fileID: 1861687804847994152, guid: e14bd26d2f9924f0898b453e31d37d2d, type: 3}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 519420031}
     - target: {fileID: 3926680587358506135, guid: e14bd26d2f9924f0898b453e31d37d2d, type: 3}
       propertyPath: m_Name
       value: BubblesSpawner
