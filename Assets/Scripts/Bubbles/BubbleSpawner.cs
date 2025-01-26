@@ -15,6 +15,14 @@ public class BubbleSpawner : MonoBehaviour
     
     // private Vector3 INVALID_MOUSE_POSITION = Vector3.positiveInfinity;
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            SpawnBubble();
+        }
+    }
+
     public void SpawnBubble()
     {
         var pos = GetRandomSpawnPosition();
