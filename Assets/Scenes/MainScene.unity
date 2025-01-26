@@ -289,6 +289,7 @@ Transform:
   - {fileID: 588976980}
   - {fileID: 304278548}
   - {fileID: 2022966477}
+  - {fileID: 1448251533}
   - {fileID: 258110988}
   - {fileID: 1146468632}
   m_Father: {fileID: 0}
@@ -351,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraController: {fileID: 588976982}
   washingGameScript: {fileID: 1214716464}
+  bubbleSpawner: {fileID: 1448251534}
   ClientsParent: {fileID: 825413607}
   CurrentClient: {fileID: 788846097}
   cluesSpawner: {fileID: 1815753213}
@@ -591,7 +593,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1448251533}
   - {fileID: 1815753212}
   - {fileID: 825413607}
   - {fileID: 637088090}
@@ -2127,12 +2128,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448251532}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 304278548}
+  m_Father: {fileID: 37898073}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1448251534
 MonoBehaviour:
@@ -2147,6 +2148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 4384584618066474860, guid: 844a9e83e53b24592aa41a60945fbcc3, type: 3}
+  bubbleSpawned: {fileID: 11400000, guid: 6dd82619cddd64059b54c23de698de0c, type: 2}
   mainCamera: {fileID: 519420031}
 --- !u!1 &1494534194
 GameObject:

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("Components")]
     public CameraController cameraController;
     public MiniGameScript washingGameScript;
+    public BubbleSpawner bubbleSpawner;
     
     [Header("Clients")]
     public Transform ClientsParent;
@@ -75,5 +76,10 @@ public class GameManager : MonoBehaviour
         
         cameraController.CameraDown();
         gameState = GameState.Basement;
+    }
+
+    public void SpawnBubble()
+    {
+        bubbleSpawner.SpawnBubble();
     }
 }

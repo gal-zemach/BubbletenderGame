@@ -28,6 +28,8 @@ public class MiniGameScript : MonoBehaviour
         feedbackText.gameObject.SetActive(true);
         levelText.text = "Level: " + sequenceScript.playerLevel.ToString();
         levelText.gameObject.SetActive(true);
+
+        sequenceScript.Init(() => gameManager?.SpawnBubble());
     }
 
     // Update is called once per frame

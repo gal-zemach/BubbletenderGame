@@ -1,8 +1,7 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 public class SequenceScript : MonoBehaviour
@@ -27,10 +26,11 @@ public class SequenceScript : MonoBehaviour
     private int successCount = 0;
     public bool sequenceActive = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    private Action bubbleSpawningAction = null;
 
+    public void Init(Action bubbleSpawningAction)
+    {
+        this.bubbleSpawningAction = bubbleSpawningAction;
     }
 
     // Update is called once per frame
@@ -79,7 +79,7 @@ public class SequenceScript : MonoBehaviour
         for (int i = 0; i < length; i++)
         {
             // Randomly pick a direction from the list
-            string randomDirection = directions[Random.Range(0, directions.Count)];
+            string randomDirection = directions[UnityEngine.Random.Range(0, directions.Count)];
             sequence.Add(randomDirection);
         }
 
@@ -147,6 +147,8 @@ public class SequenceScript : MonoBehaviour
             // If the target number of successes has been completed, exit game
             if (successCount == successTarget)
             {
+                bubbleSpawningAction?.Invoke();
+                
                 // feedbackText.text = "All Sequences Complete! Press Space to Start Again.";
                 playerLevel++;
                 seqLength++;
