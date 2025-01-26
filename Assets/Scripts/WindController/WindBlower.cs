@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class WindBlower : MonoBehaviour
 {
+    public GameManager gameManager;
+    
     public float windForce = 10f; // Maximum wind force
     public Vector2 windDirection = Vector2.right; // Direction of the wind
     public KeyCode blowKey = KeyCode.Space; // Key to trigger the wind
@@ -15,6 +17,11 @@ public class WindBlower : MonoBehaviour
 
     void Update()
     {
+        if (gameManager.gameState != GameManager.GameState.Bar)
+        {
+            return;
+        }
+        
         // Control the wind direction angle using left and right arrow keys
         if (Input.GetKey(KeyCode.RightArrow))
         {

@@ -1220,6 +1220,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7100759011831152692, guid: ede2376cd72b44ee69a5a5d13115c59f, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 37898076}
     - target: {fileID: 8097887758734520523, guid: ede2376cd72b44ee69a5a5d13115c59f, type: 3}
       propertyPath: m_Name
       value: BarRoot

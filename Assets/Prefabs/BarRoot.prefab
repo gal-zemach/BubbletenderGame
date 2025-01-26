@@ -196,9 +196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7babd27cf7c2497790a46bfc5d6b291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   windForce: 10
   windDirection: {x: 1, y: 1}
-  blowKey: 91
+  blowKey: 32
   windAngle: 26
   windRadius: 9
   angleChangeSpeed: 90
