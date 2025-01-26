@@ -16,10 +16,10 @@ public class SequenceScript : MonoBehaviour
     private float cycleDelay = 0.2f;
 
     // Difficulty Variables
-    public int successTarget = 3;   
-    public int seqLength = 3; 
+    private int successTarget = 1;   
+    private int seqLength = 3; 
     public int playerLevel = 1;
-    public int maxLevel = 10;
+    private int maxLevel = 20;
 
     // Private Variables
     // private List<string> directions = new List<string> { "W", "A", "S", "D", "U", "Q", "L", "R" };
@@ -159,12 +159,12 @@ public class SequenceScript : MonoBehaviour
                     playerLevel++;
                 }
 
-                if (playerLevel == 2 || playerLevel == 4 || playerLevel == 6 || playerLevel == 8)
+                if (playerLevel == 4 || playerLevel == 8 )
                 {
                     seqLength++;
                 }
 
-                if (playerLevel == 3 || playerLevel == 5 || playerLevel == 7 || playerLevel == 9)
+                if (playerLevel == 6 || playerLevel == 10)
                 {
                     successTarget++;
                 }
