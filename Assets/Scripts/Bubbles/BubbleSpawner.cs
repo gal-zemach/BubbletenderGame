@@ -3,6 +3,9 @@ using UnityEngine;
 public class BubbleSpawner : MonoBehaviour
 {
     public GameObject bubblePrefab;
+    
+    [Header("Events")]
+    public GameEvent bubbleSpawned;
 
     [Header("For Debugging")]
     public Camera mainCamera; // used to spawn the bubble at the mouse position
@@ -24,6 +27,7 @@ public class BubbleSpawner : MonoBehaviour
     private void SpawnBubble(Vector3 worldPosition)
     {
         GameObject newBubble = Instantiate(bubblePrefab, worldPosition, Quaternion.identity, this.transform);
+        bubbleSpawned.Raise();
     }
 
     private Vector3 GetMousePosition()

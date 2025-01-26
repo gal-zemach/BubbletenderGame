@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Components")]
     public CameraController cameraController;
+    public MiniGameScript washingGameScript;
     
     [Header("Clients")]
     public Transform ClientsParent;
@@ -52,6 +53,11 @@ public class GameManager : MonoBehaviour
     public void MoveToBar()
     {
         if (gameState == GameState.Bar)
+        {
+            return;
+        }
+
+        if (washingGameScript.IsWashingSequanceActive)
         {
             return;
         }
