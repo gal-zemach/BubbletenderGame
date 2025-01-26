@@ -11,6 +11,8 @@ public class WindBlower : MonoBehaviour
 
     private bool ShouldBlowWind = false;
 
+    public Transform windVisual; // Reference to the visual representation of the wind direction
+
     void Update()
     {
         // Control the wind direction angle using left and right arrow keys
@@ -45,6 +47,12 @@ public class WindBlower : MonoBehaviour
         float currentAngle = Mathf.Atan2(windDirection.y, windDirection.x) * Mathf.Rad2Deg;
         currentAngle += angleDelta;
         windDirection = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad), Mathf.Sin(currentAngle * Mathf.Deg2Rad)).normalized;
+
+        // Rotate the visual representation of the wind (if assigned)
+        if (windVisual != null)
+        {
+            windVisual.rotation = Quaternion.Euler(0f, 0f, currentAngle);
+        }
     }
 
     private void BlowWind()
