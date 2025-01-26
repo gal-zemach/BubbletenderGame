@@ -25,6 +25,7 @@ public class BarClientScript : MonoBehaviour
         
         order = new BarOrder(generateRandom: true);
         animator.SetTrigger(CharacterInTrigger);
+        clientMoved.Raise();
         HasEnteredBar = true;
     }
 
