@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class MiniGameScript : MonoBehaviour
 {
     public IconScript iconScript;
+
     public SequenceScript sequenceScript;
     public TimerScript timerScript;
     public TextMeshProUGUI feedbackText;
     public TextMeshProUGUI trackerText;
+    public TextMeshProUGUI levelText;
     public Slider timerSlider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +24,8 @@ public class MiniGameScript : MonoBehaviour
         // Show Instructional Text
         feedbackText.text = "Press Space to Start";
         feedbackText.gameObject.SetActive(true);
+        levelText.text = "Level: " + sequenceScript.playerLevel.ToString();
+        levelText.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -37,6 +41,7 @@ public class MiniGameScript : MonoBehaviour
     {
         // Hide Instructional Text
         feedbackText.gameObject.SetActive(false);
+        levelText.gameObject.SetActive(false);
 
         // Show Tracker UI
         timerSlider.gameObject.SetActive(true);
@@ -58,6 +63,7 @@ public class MiniGameScript : MonoBehaviour
         
         // Show Feedback UI
         feedbackText.gameObject.SetActive(true);
-       
+        levelText.text = "Level: " + sequenceScript.playerLevel.ToString();
+        levelText.gameObject.SetActive(true);  
     }
 }
