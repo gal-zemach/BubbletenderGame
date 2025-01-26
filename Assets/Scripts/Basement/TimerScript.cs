@@ -35,6 +35,7 @@ public class TimerScript : MonoBehaviour
     public void StopTimer()
     {
         timerRunning = false;
+        overTime = false;
     }
 
 }
