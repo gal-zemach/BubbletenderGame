@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 277a43fcd5d720548ab6eca63ee61eb8
+guid: 1c4dbd43334035a4084b28658049c3a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3809052666262141576
-    second: BubbleTender_startscreen_0
+      213: -765150924802650856
+    second: arrow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BubbleTender_startscreen_0
+      name: arrow_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 5
+        y: 2
+        width: 93
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88a3f4ff7397cd430800000000000000
-      internalID: 3809052666262141576
+      spriteID: 81d839fa943a165f0800000000000000
+      internalID: -765150924802650856
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      BubbleTender_startscreen_0: 3809052666262141576
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
