@@ -13,6 +13,11 @@ public class SequenceScript : MonoBehaviour
     public Sprite correctSprite;
     public Sprite incorrectSprite;
     public TrackerScript trackerScript;
+    
+    [Header("Events")]
+    public GameEvent correctSequenceEvent;
+    public GameEvent incorrectSequenceEvent;
+    
     private float cycleDelay = 0.2f;
 
     // Difficulty Variables
@@ -122,6 +127,7 @@ public class SequenceScript : MonoBehaviour
                 {
                     // Change to correct Sprite
                     currentSpriteRenderer.sprite = correctSprite;
+                    correctSequenceEvent.Raise();
                 }
 
                 currentIndex++;
@@ -134,6 +140,7 @@ public class SequenceScript : MonoBehaviour
                 {
                     // Change to incorrect Sprite
                     currentSpriteRenderer.sprite = incorrectSprite;
+                    incorrectSequenceEvent.Raise();
                 }
 
                 ResetLoop();

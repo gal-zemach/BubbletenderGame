@@ -961,6 +961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 2404881574814236922, guid: 272836d68745a4b2e8c684d18c3e0b1c, type: 3}
+      propertyPath: m_Volume
+      value: 0.624
+      objectReference: {fileID: 0}
     - target: {fileID: 2870365011238891139, guid: 272836d68745a4b2e8c684d18c3e0b1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1001,11 +1005,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6567233515664914938, guid: 272836d68745a4b2e8c684d18c3e0b1c, type: 3}
+      propertyPath: m_Volume
+      value: 0.465
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 579192917255424260, guid: 272836d68745a4b2e8c684d18c3e0b1c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 563863384453392896}
   m_SourcePrefab: {fileID: 100100000, guid: 272836d68745a4b2e8c684d18c3e0b1c, type: 3}
+--- !u!82 &563863384453392894 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6567233515664914938, guid: 272836d68745a4b2e8c684d18c3e0b1c, type: 3}
+  m_PrefabInstance: {fileID: 563863384453392893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &563863384453392895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 579192917255424260, guid: 272836d68745a4b2e8c684d18c3e0b1c, type: 3}
+  m_PrefabInstance: {fileID: 563863384453392893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &563863384453392896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563863384453392895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda65955efe734c52863d4512e4f8ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 9af14a4e0c9c8465ebac5dbacdd61a0f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 563863384453392894}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &3073525830333669477
 PrefabInstance:
   m_ObjectHideFlags: 0

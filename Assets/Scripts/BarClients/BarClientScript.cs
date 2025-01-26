@@ -11,6 +11,9 @@ public class BarClientScript : MonoBehaviour
     public string CharacterInTrigger = "ComeIn";
     public string CharacterOutTrigger = "GoAway";
 
+    [Header("Events")]
+    public GameEvent clientMoved;
+
     [Header("State")]
     public bool clientIsWaiting = false;
     public bool isDoneWaiting = false;
@@ -60,6 +63,7 @@ public class BarClientScript : MonoBehaviour
 
         timeRemaining = timeToStayInBar;
         isDoneWaiting = false;
+        clientMoved.Raise();
     }
 
     // public bool ServeOrder(BarOrder servedOrder)
@@ -71,6 +75,7 @@ public class BarClientScript : MonoBehaviour
     {
         despawnCluesAction?.Invoke();
         animator.SetTrigger(CharacterOutTrigger);
+        clientMoved.Raise();
     }
 
     public void StartSpawningClues()
@@ -83,5 +88,6 @@ public class BarClientScript : MonoBehaviour
     {        
         clientIsWaiting = false;
         OnClientLeft?.Invoke();
+        clientMoved.Raise();
     }
 }
