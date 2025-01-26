@@ -54,6 +54,7 @@ MonoBehaviour:
   animator: {fileID: 181724749884575459}
   CharacterInTrigger: ComeIn
   CharacterOutTrigger: GoAway
+  clientMoved: {fileID: 11400000, guid: 9af14a4e0c9c8465ebac5dbacdd61a0f, type: 2}
   clientIsWaiting: 0
   isDoneWaiting: 0
   timeToStayInBar: 20

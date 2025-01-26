@@ -628,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c73fcb8be47e479d8ec4994e16d9b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 0}
+  arrow: {fileID: 21300000, guid: 5a9d1417d69b7af4d9d949ccf4a2e10a, type: 3}
   iconPrefab: {fileID: 6514083538511853076}
   spawnedIcons: []
   yOffset: -7
@@ -1236,10 +1236,9 @@ MonoBehaviour:
   correctSprite: {fileID: 21300000, guid: 52e8e5ef1c7231243837c0cc79992e11, type: 3}
   incorrectSprite: {fileID: -7775836056138046689, guid: 65e054b2b290f6b458660cc5709fda64, type: 3}
   trackerScript: {fileID: 5299807876205049701}
-  successTarget: 3
-  seqLength: 3
+  correctSequenceEvent: {fileID: 11400000, guid: c17203104704641f4b5ce06d367ea161, type: 2}
+  incorrectSequenceEvent: {fileID: 11400000, guid: 4068e8afe466e47438f7added610c48e, type: 2}
   playerLevel: 1
-  maxLevel: 10
   sequenceActive: 0
 --- !u!1 &8367872238135722414
 GameObject:
