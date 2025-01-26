@@ -17,7 +17,7 @@ public class IconScript : MonoBehaviour
     public List<GameObject> spawnedIcons = new List<GameObject>();
 
     // Variables
-    public float spacing = 2.0f;
+    private float spacing = 2.0f;
     private float scaleFactor = 1.2f;
     public float yOffset = 2.0f;
     private float rotationAngle = 0f;

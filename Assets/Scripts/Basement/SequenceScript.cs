@@ -19,6 +19,7 @@ public class SequenceScript : MonoBehaviour
     public int successTarget = 3;   
     public int seqLength = 3; 
     public int playerLevel = 1;
+    public int maxLevel = 10;
 
     // Private Variables
     // private List<string> directions = new List<string> { "W", "A", "S", "D", "U", "Q", "L", "R" };
@@ -152,11 +153,18 @@ public class SequenceScript : MonoBehaviour
             {
                 bubbleSpawningAction?.Invoke();
                 
-                // feedbackText.text = "All Sequences Complete! Press Space to Start Again.";
-                playerLevel++;
-                seqLength++;
+                // Adjust Variables for the Level
+                if (playerLevel < maxLevel)
+                {
+                    playerLevel++;
+                }
 
-                if (playerLevel == 3 || playerLevel == 6 || playerLevel == 9)
+                if (playerLevel == 2 || playerLevel == 4 || playerLevel == 6 || playerLevel == 8)
+                {
+                    seqLength++;
+                }
+
+                if (playerLevel == 3 || playerLevel == 5 || playerLevel == 7 || playerLevel == 9)
                 {
                     successTarget++;
                 }
