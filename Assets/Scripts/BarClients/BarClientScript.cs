@@ -11,6 +11,9 @@ public class BarClientScript : MonoBehaviour
     public string CharacterInTrigger = "ComeIn";
     public string CharacterOutTrigger = "GoAway";
 
+    [Header("Events")]
+    public GameEvent clientMoved;
+
     [Header("State")]
     public bool HasEnteredBar = false;
 
@@ -33,6 +36,7 @@ public class BarClientScript : MonoBehaviour
     public void LeaveBar()
     {
         animator.SetTrigger(CharacterOutTrigger);
+        clientMoved.Raise();
     }
 
     public void StartSpawningClues()
