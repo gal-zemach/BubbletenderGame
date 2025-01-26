@@ -672,6 +672,7 @@ MonoBehaviour:
   iconPrefab: {fileID: 1670169773}
   spacing: 2
   scaleFactor: 0.2
+  yOffset: 2
 --- !u!1 &1627779154
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +708,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 46}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 800, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1627779156
 MonoBehaviour:
@@ -763,7 +764,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

@@ -12,37 +12,33 @@ public class IconScript : MonoBehaviour
     // This is the Prefab to display the sprites
     public GameObject iconPrefab;
 
+    // Keep list of spawned Icons
+    public List<GameObject> spawnedIcons = new List<GameObject>();
+
     // Variables
     public float spacing = 2.0f;
     public float scaleFactor = 0.2f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float yOffset = 2.0f;
 
     public void CreateIcons(List<string> sequence)
     {
+        // Destroy existing sprites
+        DestroyExistingSprites();
+
         // Calculate horizontal spacing
         float totalWidth = (sequence.Count - 1) * spacing;
 
         // Calculate starting position
-        Vector3 startPosition = new Vector3(-totalWidth / 2,0,0);
+        Vector3 startPosition = new Vector3(-totalWidth / 2, yOffset, 0);
 
         // Iterate through the sequence
         for (int i = 0; i < sequence.Count; i++)
         {
             // Determine which sprite to instantiate based on the direction
             Sprite spriteToInstantiate = null;
+            string direction = sequence[i].ToUpper();
 
-            switch (sequence[i].ToUpper())
+            switch (direction)
             {
                 case "W":
                     spriteToInstantiate = upIcon;
@@ -66,8 +62,24 @@ public class IconScript : MonoBehaviour
             spriteObject.GetComponent<SpriteRenderer>().sprite = spriteToInstantiate;
 
             // Scale the sprite object
-            spriteObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);   
+            spriteObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
+
+            // Optionally, set a unique identifier on each sprite for easy identification
+            spriteObject.tag = direction;  // We use the tag as a marker for the direction
+
+            spawnedIcons.Add(spriteObject);
         }
     }
-}
 
+    public void DestroyExistingSprites()
+    {
+        foreach (GameObject sprite in spawnedIcons)
+        {
+            if (sprite != null)
+            {
+                Destroy(sprite); // Destroy the sprite object
+            }
+        }
+        spawnedIcons.Clear(); // Clear the list after destruction
+    }
+}

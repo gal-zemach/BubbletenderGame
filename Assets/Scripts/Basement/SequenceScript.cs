@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +32,7 @@ public class SequenceScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        feedbackText.text = "Follow the Pattern";
+        feedbackText.text = "Press Space to Start";
     }
 
     // Update is called once per frame
@@ -56,8 +57,7 @@ public class SequenceScript : MonoBehaviour
         // End the sequence if the timer runs out
         if (timerScript.timerRunning == false)
         {
-            sequenceActive = false;
-            gameScript.OnSequenceCompleted(true);
+            EndSequence();
         }
     }
     // Display the Sequence
@@ -96,6 +96,14 @@ public class SequenceScript : MonoBehaviour
             if (input == correctSequence[currentIndex].ToString())
             {
                 Debug.Log("Correct Input");
+
+                SpriteRenderer currentSpriteRenderer = iconScript.spawnedIcons[currentIndex].GetComponent<SpriteRenderer>();
+                if (currentSpriteRenderer != null)
+                {
+                    // Change the color to green or any color you prefer
+                    currentSpriteRenderer.color = Color.green;
+                }
+
                 currentIndex++;
             }
             
@@ -116,12 +124,8 @@ public class SequenceScript : MonoBehaviour
             // If the target number of successes has been completed, exit game
             if (successCount == successTarget)
             {
-                Debug.Log("Success!");
-                
-                // Change the Feedback Text
                 feedbackText.text = "All Sequences Complete!";
-                sequenceActive = false;
-                gameScript.OnSequenceCompleted(true);
+                EndSequence();
             }
 
             // Otherwise, restart the loop
@@ -140,6 +144,13 @@ public class SequenceScript : MonoBehaviour
         
         // ReRun Sequence
         RunSequence();
+    }
+
+    private void EndSequence()
+    {
+        iconScript.DestroyExistingSprites();
+        sequenceActive = false;
+        gameScript.OnSequenceCompleted(true);
     }
 
 }

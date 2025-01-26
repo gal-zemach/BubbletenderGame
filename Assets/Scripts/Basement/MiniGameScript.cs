@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -7,6 +8,7 @@ public class MiniGameScript : MonoBehaviour
     public UIScript uiScript;
     public SequenceScript sequenceScript;
     public TimerScript timerScript;
+    public TextMeshProUGUI feedbackText;
     private bool gameActive = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,7 +32,8 @@ public class MiniGameScript : MonoBehaviour
         gameActive = true;
         uiScript.ShowUI();
         timerScript.StartTimer();
-        // sequenceScript.RunSequence();  
+        feedbackText.text = "Follow the Pattern";
+        sequenceScript.RunSequence();  
     }
 
     public void OnSequenceCompleted (bool success)
