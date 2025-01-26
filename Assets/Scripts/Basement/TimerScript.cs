@@ -6,6 +6,7 @@ public class TimerScript : MonoBehaviour
     public Slider timerSlider;
     public float timeLimit = 10f;
     public bool timerRunning = false;
+    public bool overTime = false;
     private float currentTime;
 
     void Update()
@@ -18,6 +19,7 @@ public class TimerScript : MonoBehaviour
             if (currentTime <=0)
             {
                 timerRunning = false;
+                overTime = true;
                 timerSlider.value = 0;
             }
         }

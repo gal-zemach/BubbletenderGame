@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class SequenceScript : MonoBehaviour
 {
@@ -11,12 +12,15 @@ public class SequenceScript : MonoBehaviour
     public MiniGameScript gameScript; 
     public TimerScript timerScript;
     public IconScript iconScript;
+    private float cycleDelay = 0.2f;
 
-    // Variables
+    // Difficulty Variables
     public int successTarget = 3;   
     public int seqLength = 3; 
     public int playerLevel = 1;
-    private List<string> directions = new List<string> { "W", "A", "S", "D" };
+
+    // Private Variables
+    private List<string> directions = new List<string> { "W", "A", "S", "D", "U", "Q", "L", "R" };
 
     private List<string> correctSequence;
     private int currentIndex = 0;
@@ -49,7 +53,7 @@ public class SequenceScript : MonoBehaviour
         }
         
         // End the sequence if the timer runs out
-        if (timerScript.timerRunning == false)
+        if (timerScript.overTime == true)
         {
             EndSequence();
         }
@@ -89,6 +93,10 @@ public class SequenceScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A)) return "A";
         if (Input.GetKeyDown(KeyCode.S)) return "S";
         if (Input.GetKeyDown(KeyCode.D)) return "D";
+        if (Input.GetKeyDown(KeyCode.UpArrow)) return "U";
+        if (Input.GetKeyDown(KeyCode.DownArrow)) return "Q";
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) return "L";
+        if (Input.GetKeyDown(KeyCode.RightArrow)) return "R";
 
         return null;
     }
@@ -117,6 +125,13 @@ public class SequenceScript : MonoBehaviour
             
             else
             {
+                SpriteRenderer currentSpriteRenderer = iconScript.spawnedIcons[currentIndex].GetComponent<SpriteRenderer>();
+                if (currentSpriteRenderer != null)
+                {
+                    // Change the color to green or any color you prefer
+                    currentSpriteRenderer.color = Color.red;
+                }
+
                 ResetLoop();
             }
         }
@@ -157,12 +172,30 @@ public class SequenceScript : MonoBehaviour
         // Reset Counters
         currentIndex = 0;
         
-        // ReRun Sequence
+        // Start a coroutine to delay the next sequence
+        StartCoroutine(DelayedRunSequence(cycleDelay));  // 1f is the delay in seconds
+    }
+
+    private IEnumerator DelayedRunSequence(float delay)
+    {
+        // Wait for the specified delay time
+        yield return new WaitForSeconds(delay);
+
+        // After the delay, run the sequence
         RunSequence();
     }
 
     private void EndSequence()
     {
+        StartCoroutine(DelayedLoop(cycleDelay));
+    }
+
+    private IEnumerator DelayedLoop(float delay)
+    {
+        // Wait for the specified delay time
+        yield return new WaitForSeconds(delay);
+
+        // After the delay, run the sequence
         currentIndex = 0;
         successCount = 0;
         iconScript.DestroyExistingSprites();
