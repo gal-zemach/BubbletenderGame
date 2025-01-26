@@ -14,9 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: b9545837fc395411b82763475b1b5f20
-  - enabled: 1
-    path: Assets/Scenes/AlexiScene.unity
-    guid: 19534699ec6fc49278fc6d4134472797
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

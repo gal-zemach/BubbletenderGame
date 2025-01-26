@@ -7,6 +7,8 @@ public class WindBlower : MonoBehaviour
     public float windForce = 10f; // Maximum wind force
     public Vector2 windDirection = Vector2.right; // Direction of the wind
     public KeyCode blowKey = KeyCode.Space; // Key to trigger the wind
+    public KeyCode LeftKey = KeyCode.A;
+    public KeyCode rightKey = KeyCode.D;
     public float windAngle = 45f; // Half of the cone's angle (e.g., 45 degrees for a 90-degree cone)
     public float windRadius = 10f; // Maximum distance of the wind effect
     public float angleChangeSpeed = 90f; // Speed at which the wind direction changes (degrees per second)
@@ -14,6 +16,11 @@ public class WindBlower : MonoBehaviour
     private bool ShouldBlowWind = false;
 
     public Transform windVisual; // Reference to the visual representation of the wind direction
+
+    void Start()
+    {
+        ChangeWindDirection(0);
+    }
 
     void Update()
     {
@@ -23,11 +30,11 @@ public class WindBlower : MonoBehaviour
         }
         
         // Control the wind direction angle using left and right arrow keys
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(rightKey))
         {
             ChangeWindDirection(-angleChangeSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(LeftKey))
         {
             ChangeWindDirection(angleChangeSpeed * Time.deltaTime);
         }
