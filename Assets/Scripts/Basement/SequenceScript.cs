@@ -7,12 +7,12 @@ using System.Collections;
 public class SequenceScript : MonoBehaviour
 {
     public TextMeshProUGUI feedbackText;
-    public TextMeshProUGUI trackerText;
     public MiniGameScript gameScript; 
     public TimerScript timerScript;
     public IconScript iconScript;
     public Sprite correctSprite;
     public Sprite incorrectSprite;
+    public TrackerScript trackerScript;
     private float cycleDelay = 0.2f;
 
     // Difficulty Variables
@@ -73,7 +73,7 @@ public class SequenceScript : MonoBehaviour
 
         // Start the Script
         sequenceActive = true;
-        trackerText.text = successCount.ToString() + "/" + successTarget.ToString();
+        trackerScript.UpdateCounter(successCount, successTarget);
     }
 
     private List<string> GenerateRandomSequence(int length)
@@ -146,7 +146,7 @@ public class SequenceScript : MonoBehaviour
            successCount++;
 
             // Change the Feedback Text
-            trackerText.text = successCount.ToString() + "/" + successTarget.ToString();
+            trackerScript.UpdateCounter(successCount, successTarget);
 
             // If the target number of successes has been completed, exit game
             if (successCount == successTarget)
@@ -214,6 +214,7 @@ public class SequenceScript : MonoBehaviour
         iconScript.DestroyExistingSprites();
         sequenceActive = false;
         gameScript.OnSequenceCompleted(true);
+        trackerScript.DestroyTracker();
     }
 
 }

@@ -11,7 +11,6 @@ public class MiniGameScript : MonoBehaviour
     public SequenceScript sequenceScript;
     public TimerScript timerScript;
     public TextMeshProUGUI feedbackText;
-    public TextMeshProUGUI trackerText;
     public TextMeshProUGUI levelText;
     public Slider timerSlider;
 
@@ -20,7 +19,6 @@ public class MiniGameScript : MonoBehaviour
     void Start()
     {
         // Hide Tracker + Timer on Entry
-        trackerText.gameObject.SetActive(false);
         timerSlider.gameObject.SetActive(false);
  
         // Hide Instructional Text (For Game Jam: Ugly Text)
@@ -54,7 +52,6 @@ public class MiniGameScript : MonoBehaviour
 
         // Show Tracker UI
         timerSlider.gameObject.SetActive(true);
-        trackerText.gameObject.SetActive(true);
 
         // Start Mini Game
         timerScript.StartTimer();
@@ -68,7 +65,6 @@ public class MiniGameScript : MonoBehaviour
 
         // Hide Tracker UI
         timerSlider.gameObject.SetActive(false);
-        trackerText.gameObject.SetActive(false);
         
         // Hide Feedback UI (For Game Jam: Ugly Font)
         feedbackText.gameObject.SetActive(false);
