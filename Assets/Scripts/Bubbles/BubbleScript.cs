@@ -70,6 +70,15 @@ public class BubbleScript : MonoBehaviour
             return;
         }
 
+        if (other.transform.parent != null && other.transform.parent.parent != null)
+        {
+            var clue = other.transform.parent.parent.GetComponent<ClueScript>();
+            if (clue != null)
+            {
+                clue.Hide();
+            }
+        }
+
         IsCompleted = true;
         Object.Destroy(this.gameObject);
     }

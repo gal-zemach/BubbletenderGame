@@ -64,13 +64,17 @@ public class ClueScript : MonoBehaviour
         clueSprite.sprite = null;
     }
     
+    public bool isShown = false;
+
     public void Show()
     {
+        isShown = true;
         spritesParent.SetActive(true);
     }
 
     public void Hide()
     {
+        isShown = false;
         spritesParent.SetActive(false);
     }
 }
