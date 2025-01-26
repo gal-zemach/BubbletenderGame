@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BubbleTender_Credit_0: -8991879496540601920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

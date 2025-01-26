@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BubbleTender_startscreen_0: 3809052666262141576
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
