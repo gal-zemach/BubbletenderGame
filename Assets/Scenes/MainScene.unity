@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 37898073}
   - component: {fileID: 37898076}
   - component: {fileID: 37898074}
-  - component: {fileID: 37898075}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -174,9 +173,9 @@ MonoBehaviour:
   GoUpstairsAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 588976982}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
-        m_MethodName: CameraUp
+      - m_Target: {fileID: 37898076}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: MoveToBar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -189,9 +188,9 @@ MonoBehaviour:
   GoDownstairsAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 588976982}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
-        m_MethodName: CameraDown
+      - m_Target: {fileID: 37898076}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: MoveToBasement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -201,19 +200,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &37898075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37898072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba25ba43a4de404d9ca74d625189108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clueBubbles: []
 --- !u!114 &37898076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,10 +212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd7879404b41472c9b0711a45ed735d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraController: {fileID: 588976982}
   ClientsParent: {fileID: 825413607}
   CurrentClient: {fileID: 788846097}
   cluesSpawner: {fileID: 1815753213}
   bubblesSpawner: {fileID: 0}
+  gameState: 0
 --- !u!1 &258110987
 GameObject:
   m_ObjectHideFlags: 0

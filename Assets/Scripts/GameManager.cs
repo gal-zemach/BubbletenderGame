@@ -5,8 +5,15 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameState
+    {
+        Bar, Basement
+    }
+    
+    [Header("Components")]
+    public CameraController cameraController;
+    
     [Header("Clients")]
-    // public BarClientScript ClientPrefab;
     public Transform ClientsParent;
 
     [Space]
@@ -18,9 +25,12 @@ public class GameManager : MonoBehaviour
     [Header("Bubbles")]
     public BubbleSpawner bubblesSpawner;
 
+    [Space]
+    public GameState gameState;
+
     void Start()
     {
-            
+        gameState = GameState.Bar;
     }
     
     void Update()
@@ -37,5 +47,27 @@ public class GameManager : MonoBehaviour
             cluesSpawner.ClearClues();
             CurrentClient.LeaveBar();
         }
+    }
+
+    public void MoveToBar()
+    {
+        if (gameState == GameState.Bar)
+        {
+            return;
+        }
+
+        cameraController.CameraUp();
+        gameState = GameState.Bar;
+    }
+
+    public void MoveToBasement()
+    {
+        if (gameState == GameState.Basement)
+        {
+            return;
+        }
+        
+        cameraController.CameraDown();
+        gameState = GameState.Basement;
     }
 }
