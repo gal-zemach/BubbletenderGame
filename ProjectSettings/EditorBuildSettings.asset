@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CreditMenuScene.unity
     guid: e78aa93617f0e394eb53c3302b57de01
   - enabled: 1
-    path: Assets/Scenes/GalsScene.unity
+    path: Assets/Scenes/MainScene.unity
     guid: b9545837fc395411b82763475b1b5f20
   - enabled: 1
     path: Assets/Scenes/AlexiScene.unity
