@@ -52,7 +52,12 @@ MonoBehaviour:
     GarnishType: 0
   spriteRenderer: {fileID: 2768716393606112181}
   animator: {fileID: 181724749884575459}
+  CharacterInTrigger: ComeIn
   CharacterOutTrigger: GoAway
+  clientIsWaiting: 0
+  isDoneWaiting: 0
+  timeToStayInBar: 20
+  timeRemaining: 0
 --- !u!95 &181724749884575459
 Animator:
   serializedVersion: 7

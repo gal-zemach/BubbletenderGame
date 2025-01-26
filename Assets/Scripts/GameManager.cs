@@ -33,22 +33,28 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameState = GameState.Bar;
+        
+        CurrentClient.OnClientIsDoneWaiting += ClientLeaves;
+        CurrentClient.OnClientLeft += InsertNewClient;
+        InsertNewClient();
+    }
+
+    public void InsertNewClient()
+    {
+        Action<BarOrder> onEnteredBar = (order) => cluesSpawner.SpawnClues(order);
+        Action onLeftBar = () => cluesSpawner.ClearClues();
+            
+        CurrentClient.EnterBar(onEnteredBar, onLeftBar);
+    }
+
+    public void ClientLeaves()
+    {
+        CurrentClient.LeaveBar();
     }
     
-    void Update()
+    void OnDestroy()
     {
-        if (!CurrentClient.HasEnteredBar && Input.GetKeyDown(KeyCode.N))
-        {
-            Action<BarOrder> onEnteredBar = (order) => cluesSpawner.SpawnClues(order);
-            
-            CurrentClient.EnterBar(onEnteredBar);
-        }
-        
-        if (CurrentClient.HasEnteredBar && Input.GetKeyDown(KeyCode.M))
-        {
-            cluesSpawner.ClearClues();
-            CurrentClient.LeaveBar();
-        }
+        CurrentClient.OnClientLeft -= InsertNewClient;
     }
 
     public void MoveToBar()
