@@ -1,20 +1,28 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class BarClientScript : MonoBehaviour
 {
     public BarOrder order;
     public SpriteRenderer spriteRenderer;
+    
+    [Header("Animation")]
+    public Animator animator;
+    public string CharacterInTrigger = "ComeIn";
+    public string CharacterOutTrigger = "GoAway";
 
-    public List<Sprite> characterSprites;
+    [Header("State")]
+    public bool HasEnteredBar = false;
 
-    public void Init()
+    private Action<BarOrder> spawnCluesAction = null;
+
+    public void EnterBar(Action<BarOrder> onEnteredBar = null)
     {
-        order = new BarOrder(generateRandom: true);
-        SetClientSprite();
+        spawnCluesAction = onEnteredBar;
         
-        Show();
+        order = new BarOrder(generateRandom: true);
+        animator.SetTrigger(CharacterInTrigger);
+        HasEnteredBar = true;
     }
 
     public bool ServeOrder(BarOrder servedOrder)
@@ -22,20 +30,19 @@ public class BarClientScript : MonoBehaviour
         return order.IsFulfilled(servedOrder);
     }
 
-    public void Show()
+    public void LeaveBar()
     {
-        spriteRenderer.enabled = true;
+        animator.SetTrigger(CharacterOutTrigger);
     }
 
-    public void Hide()
+    public void StartSpawningClues()
     {
-        spriteRenderer.enabled = false;
-        // Destroy(this.gameObject);
+        spawnCluesAction?.Invoke(order);
     }
 
-    private void SetClientSprite()
+    // Run by animatin event after leaving
+    public void MarkClientLeftTheBar()
     {
-        int randomIndex = Random.Range(0, characterSprites.Count);
-        spriteRenderer.sprite = characterSprites[randomIndex];
+        HasEnteredBar = false;
     }
 }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     [Header("Clients")]
-    public GameObject ClientPrefab;
+    // public BarClientScript ClientPrefab;
     public Transform ClientsParent;
 
     [Space]
@@ -20,40 +20,22 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+            
     }
     
     void Update()
     {
-        if (CurrentClient == null && Input.GetKeyDown(KeyCode.N))
+        if (!CurrentClient.HasEnteredBar && Input.GetKeyDown(KeyCode.N))
         {
-            CurrentClient = CreateNewClient();
-            CurrentClient.Init();
+            Action<BarOrder> onEnteredBar = (order) => cluesSpawner.SpawnClues(order);
             
-            cluesSpawner.SpawnClues(CurrentClient.order);
+            CurrentClient.EnterBar(onEnteredBar);
         }
         
-        if (Input.GetKeyDown(KeyCode.M))
+        if (CurrentClient.HasEnteredBar && Input.GetKeyDown(KeyCode.M))
         {
             cluesSpawner.ClearClues();
-
-            CurrentClient.Hide();
-            CurrentClient = null;
+            CurrentClient.LeaveBar();
         }
-
-        // if (CurrentOrder)
-        // {
-        //     if (CurrentClient.ServeOrder(CurrentClient))
-
-
-        //     CurrentClient.Hide();
-        //     CurrentClient = null;
-        // }
-    }
-
-    private BarClientScript CreateNewClient()
-    {
-        var newClientGo = GameObject.Instantiate<GameObject>(ClientPrefab, ClientsParent);
-        return newClientGo.GetComponent<BarClientScript>();
     }
 }
