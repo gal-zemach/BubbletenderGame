@@ -383,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 4326166799300954621}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18, y: 16, z: -0.16954023}
+  m_LocalPosition: {x: 7, y: 72, z: -0.16954023}
   m_LocalScale: {x: 105.26316, y: 105.26316, z: 2.7350428}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   counterContainer: {fileID: 6656915252072999990}
   numberSprites:
-  - {fileID: 2072800353029507913, guid: 54587e8b5ffdd41f681d3cafa283ecf7, type: 3}
+  - {fileID: 2072800353029507913, guid: 89302564625e31c43870a277589065d5, type: 3}
   - {fileID: -1453672851350796098, guid: 0c687450405a844628226a3bb1c9422b, type: 3}
   - {fileID: -789799264902741689, guid: ca8d58c1ce4a240ab94266e9cb77a127, type: 3}
   - {fileID: -8963151730048115746, guid: debf7a8cc512946f8bfc56c2ef95e3d5, type: 3}
