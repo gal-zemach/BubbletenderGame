@@ -25,7 +25,7 @@ public class SequenceScript : MonoBehaviour
     private List<string> correctSequence;
     private int currentIndex = 0;
     private int successCount = 0;
-    private bool sequenceActive = false;
+    public bool sequenceActive = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

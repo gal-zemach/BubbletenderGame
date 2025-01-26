@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class MiniGameScript : MonoBehaviour
 {
+    public GameManager gameManager;
+    
     public IconScript iconScript;
 
     public SequenceScript sequenceScript;
@@ -14,7 +15,8 @@ public class MiniGameScript : MonoBehaviour
     public TextMeshProUGUI levelText;
     public Slider timerSlider;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool IsWashingSequanceActive => sequenceScript.sequenceActive;
+
     void Start()
     {
         // Hide Tracker + Timer on Entry
@@ -31,6 +33,11 @@ public class MiniGameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameManager.gameState != GameManager.GameState.Basement)
+        {
+            return;
+        }
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartWashGame();

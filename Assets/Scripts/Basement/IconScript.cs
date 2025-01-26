@@ -33,7 +33,7 @@ public class IconScript : MonoBehaviour
         float totalWidth = (sequence.Count - 1) * spacing;
 
         // Calculate starting position
-        Vector3 startPosition = new Vector3(-totalWidth / 2, yOffset, 0);
+        Vector3 startPosition = new Vector3(-totalWidth / 2, transform.position.y + yOffset, transform.position.z);
 
         // Iterate through the sequence
         for (int i = 0; i < sequence.Count; i++)
@@ -72,7 +72,7 @@ public class IconScript : MonoBehaviour
 
             // Instantiate the sprite at the correct position
             Vector3 position = startPosition + new Vector3(i * spacing, 0, 0);
-            GameObject spriteObject = Instantiate(iconPrefab, position, Quaternion.identity);
+            GameObject spriteObject = Instantiate(iconPrefab, position, Quaternion.identity, transform);
 
             // Assign the correct sprite to the instantiated object
             spriteObject.GetComponent<SpriteRenderer>().sprite = spriteToInstantiate;
@@ -80,8 +80,8 @@ public class IconScript : MonoBehaviour
             // Scale the sprite object
             spriteObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
 
-            // Optionally, set a unique identifier on each sprite for easy identification
-            spriteObject.tag = direction;  // We use the tag as a marker for the direction
+            // // Optionally, set a unique identifier on each sprite for easy identification
+            // spriteObject.tag = direction;  // We use the tag as a marker for the direction
 
             spawnedIcons.Add(spriteObject);
         }
