@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8833980428313448869}
   - component: {fileID: 5994031550161673201}
+  - component: {fileID: 4010434651014722842}
   m_Layer: 0
   m_Name: BubblePrefab
   m_TagString: Untagged
@@ -45,10 +46,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984beafc78a2b4af3bf2b52243dd6bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatSpeed: 0.02
-  horizontalAmp: 0.01
-  horizontalSpeed: 1
+  rigidbody2D: {fileID: 4010434651014722842}
+  bubbleCollider: {fileID: 3673544471275355312}
+  bubbleInitialForce: 100
   overlapThresholdToCollect: 0.65
+--- !u!50 &4010434651014722842
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4384584618066474860}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: -0.01
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &6461327213552906548
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +90,7 @@ GameObject:
   - component: {fileID: 3673544471275355312}
   m_Layer: 0
   m_Name: Bubble
-  m_TagString: Untagged
+  m_TagString: Bubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

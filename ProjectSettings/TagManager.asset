@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bubble
   - Clue
+  - Border
   layers:
   - Default
   - TransparentFX
