@@ -22,12 +22,12 @@ public class MiniGameScript : MonoBehaviour
         // Hide Tracker + Timer on Entry
         trackerText.gameObject.SetActive(false);
         timerSlider.gameObject.SetActive(false);
-
-        // Show Instructional Text
+ 
+        // Hide Instructional Text (For Game Jam: Ugly Text)
         feedbackText.text = "Press Space to Start";
-        feedbackText.gameObject.SetActive(true);
+        feedbackText.gameObject.SetActive(false);
         levelText.text = "Level: " + sequenceScript.playerLevel.ToString();
-        levelText.gameObject.SetActive(true);
+        levelText.gameObject.SetActive(false);
 
         sequenceScript.Init(() => gameManager?.SpawnBubble());
     }
@@ -70,9 +70,9 @@ public class MiniGameScript : MonoBehaviour
         timerSlider.gameObject.SetActive(false);
         trackerText.gameObject.SetActive(false);
         
-        // Show Feedback UI
-        feedbackText.gameObject.SetActive(true);
+        // Hide Feedback UI (For Game Jam: Ugly Font)
+        feedbackText.gameObject.SetActive(false);
         levelText.text = "Level: " + sequenceScript.playerLevel.ToString();
-        levelText.gameObject.SetActive(true);  
+        levelText.gameObject.SetActive(false);  
     }
 }
