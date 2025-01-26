@@ -12,26 +12,64 @@ public class BarClientScript : MonoBehaviour
     public string CharacterOutTrigger = "GoAway";
 
     [Header("State")]
-    public bool HasEnteredBar = false;
+    public bool clientIsWaiting = false;
+    public bool isDoneWaiting = false;
+
+    public Action OnClientLeft = null;
+    public Action OnClientIsDoneWaiting = null;
 
     private Action<BarOrder> spawnCluesAction = null;
+    private Action despawnCluesAction = null;
 
-    public void EnterBar(Action<BarOrder> onEnteredBar = null)
+    [Space]
+    public float timeToStayInBar = 3f;
+    public float timeRemaining;
+
+    void Update()
     {
+        if (!clientIsWaiting)
+        {
+            return;
+        }
+
+        if (timeRemaining <= 0f)
+        {
+            timeRemaining = timeToStayInBar;
+            isDoneWaiting = true;
+            OnClientIsDoneWaiting?.Invoke();
+            return;
+        }
+
+        timeRemaining -= Time.deltaTime;
+    }
+
+    public void EnterBar(Action<BarOrder> onEnteredBar = null, Action onLeftBar = null)
+    {
+        if (clientIsWaiting)
+        {
+            return;
+        }
+
+        clientIsWaiting = true;
+
         spawnCluesAction = onEnteredBar;
+        despawnCluesAction = onLeftBar;
         
         order = new BarOrder(generateRandom: true);
         animator.SetTrigger(CharacterInTrigger);
-        HasEnteredBar = true;
+
+        timeRemaining = timeToStayInBar;
+        isDoneWaiting = false;
     }
 
-    public bool ServeOrder(BarOrder servedOrder)
-    {
-        return order.IsFulfilled(servedOrder);
-    }
+    // public bool ServeOrder(BarOrder servedOrder)
+    // {
+    //     return order.IsFulfilled(servedOrder);
+    // }
 
     public void LeaveBar()
     {
+        despawnCluesAction?.Invoke();
         animator.SetTrigger(CharacterOutTrigger);
     }
 
@@ -42,7 +80,8 @@ public class BarClientScript : MonoBehaviour
 
     // Run by animatin event after leaving
     public void MarkClientLeftTheBar()
-    {
-        HasEnteredBar = false;
+    {        
+        clientIsWaiting = false;
+        OnClientLeft?.Invoke();
     }
 }
