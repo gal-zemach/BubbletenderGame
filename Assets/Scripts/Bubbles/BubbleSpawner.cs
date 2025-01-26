@@ -23,11 +23,17 @@ public class BubbleSpawner : MonoBehaviour
         }
     }
 
+    public int amountToSpawn = 5;
+
     public void SpawnBubble()
     {
-        var pos = GetRandomSpawnPosition();
-        pos.z = transform.position.z;
-        SpawnBubble(pos);
+        for (int i = 0; i < amountToSpawn; i++)
+        {
+            var pos = GetRandomSpawnPosition();
+            pos.z = transform.position.z;
+            SpawnBubble(pos);
+
+        }        
     }
 
     private void SpawnBubble(Vector3 worldPosition)
