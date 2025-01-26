@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WaterScript : MonoBehaviour
+public class RightHandScript : MonoBehaviour
 {
     private float rotationSpeed = 8f;   // Rotation speed (degrees per second)
     private float maxRotationAngle = 5f; // Maximum rotation angle (degrees)

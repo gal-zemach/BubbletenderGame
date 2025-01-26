@@ -11,15 +11,19 @@ public class SequenceScript : MonoBehaviour
     public MiniGameScript gameScript; 
     public TimerScript timerScript;
     public IconScript iconScript;
+    public Sprite correctSprite;
+    public Sprite incorrectSprite;
     private float cycleDelay = 0.2f;
 
     // Difficulty Variables
     public int successTarget = 3;   
     public int seqLength = 3; 
     public int playerLevel = 1;
+    public int maxLevel = 10;
 
     // Private Variables
-    private List<string> directions = new List<string> { "W", "A", "S", "D", "U", "Q", "L", "R" };
+    // private List<string> directions = new List<string> { "W", "A", "S", "D", "U", "Q", "L", "R" };
+    private List<string> directions = new List<string> {"U", "Q", "L", "R" };
 
     private List<string> correctSequence;
     private int currentIndex = 0;
@@ -89,10 +93,10 @@ public class SequenceScript : MonoBehaviour
     // Gather Player Input
     string GetKeyPressed()
     {
-        if (Input.GetKeyDown(KeyCode.W)) return "W";
-        if (Input.GetKeyDown(KeyCode.A)) return "A";
-        if (Input.GetKeyDown(KeyCode.S)) return "S";
-        if (Input.GetKeyDown(KeyCode.D)) return "D";
+        // if (Input.GetKeyDown(KeyCode.W)) return "W";
+        // if (Input.GetKeyDown(KeyCode.A)) return "A";
+        // if (Input.GetKeyDown(KeyCode.S)) return "S";
+        // if (Input.GetKeyDown(KeyCode.D)) return "D";
         if (Input.GetKeyDown(KeyCode.UpArrow)) return "U";
         if (Input.GetKeyDown(KeyCode.DownArrow)) return "Q";
         if (Input.GetKeyDown(KeyCode.LeftArrow)) return "L";
@@ -116,8 +120,8 @@ public class SequenceScript : MonoBehaviour
                 SpriteRenderer currentSpriteRenderer = iconScript.spawnedIcons[currentIndex].GetComponent<SpriteRenderer>();
                 if (currentSpriteRenderer != null)
                 {
-                    // Change the color to green or any color you prefer
-                    currentSpriteRenderer.color = Color.green;
+                    // Change to correct Sprite
+                    currentSpriteRenderer.sprite = correctSprite;
                 }
 
                 currentIndex++;
@@ -128,8 +132,8 @@ public class SequenceScript : MonoBehaviour
                 SpriteRenderer currentSpriteRenderer = iconScript.spawnedIcons[currentIndex].GetComponent<SpriteRenderer>();
                 if (currentSpriteRenderer != null)
                 {
-                    // Change the color to green or any color you prefer
-                    currentSpriteRenderer.color = Color.red;
+                    // Change to incorrect Sprite
+                    currentSpriteRenderer.sprite = incorrectSprite;
                 }
 
                 ResetLoop();
@@ -149,11 +153,18 @@ public class SequenceScript : MonoBehaviour
             {
                 bubbleSpawningAction?.Invoke();
                 
-                // feedbackText.text = "All Sequences Complete! Press Space to Start Again.";
-                playerLevel++;
-                seqLength++;
+                // Adjust Variables for the Level
+                if (playerLevel < maxLevel)
+                {
+                    playerLevel++;
+                }
 
-                if (playerLevel == 3 || playerLevel == 6 || playerLevel == 9)
+                if (playerLevel == 2 || playerLevel == 4 || playerLevel == 6 || playerLevel == 8)
+                {
+                    seqLength++;
+                }
+
+                if (playerLevel == 3 || playerLevel == 5 || playerLevel == 7 || playerLevel == 9)
                 {
                     successTarget++;
                 }

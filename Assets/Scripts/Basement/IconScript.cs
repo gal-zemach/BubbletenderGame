@@ -4,14 +4,11 @@ using UnityEngine;
 public class IconScript : MonoBehaviour
 {
     // These are the direction icons
-    public Sprite upIcon;
-    public Sprite leftIcon;
-    public Sprite downIcon;
-    public Sprite rightIcon;
-    public Sprite letterW;
-    public Sprite letterA;
-    public Sprite letterS;
-    public Sprite letterD;
+    public Sprite arrow;
+    // public Sprite letterW;
+    // public Sprite letterA;
+    // public Sprite letterS;
+    // public Sprite letterD;
 
     // This is the Prefab to display the sprites
     public GameObject iconPrefab;
@@ -20,9 +17,10 @@ public class IconScript : MonoBehaviour
     public List<GameObject> spawnedIcons = new List<GameObject>();
 
     // Variables
-    public float spacing = 2.0f;
-    public float scaleFactor = 0.2f;
+    private float spacing = 2.0f;
+    private float scaleFactor = 1.2f;
     public float yOffset = 2.0f;
+    private float rotationAngle = 0f;
 
     public void CreateIcons(List<string> sequence)
     {
@@ -39,35 +37,35 @@ public class IconScript : MonoBehaviour
         for (int i = 0; i < sequence.Count; i++)
         {
             // Determine which sprite to instantiate based on the direction
-            Sprite spriteToInstantiate = null;
+            Sprite spriteToInstantiate = arrow;
             string direction = sequence[i].ToUpper();
 
             switch (direction)
             {
-                case "U":
-                    spriteToInstantiate = upIcon;
+                case "U": // Up Arrow
+                    rotationAngle = -90f;
                     break;
-                case "L":
-                    spriteToInstantiate = leftIcon;
+                case "L": // Left Arrow
+                    rotationAngle = 0f;
                     break;
-                case "Q":
-                    spriteToInstantiate = downIcon;
+                case "Q": // Down Arrow
+                    rotationAngle = 90f;
                     break;
-                case "R":
-                    spriteToInstantiate = rightIcon;
+                case "R": // Right Arrow
+                    rotationAngle = 180f;
                     break;
-                case "W":
-                    spriteToInstantiate = letterW;
-                    break;
-                case "A":
-                    spriteToInstantiate = letterA;
-                    break;
-                case "S":
-                    spriteToInstantiate = letterS;
-                    break;
-                case "D":
-                    spriteToInstantiate = letterD;
-                    break;
+                // case "W":
+                //     spriteToInstantiate = letterW;
+                //     break;
+                // case "A":
+                //     spriteToInstantiate = letterA;
+                //     break;
+                // case "S":
+                //     spriteToInstantiate = letterS;
+                //     break;
+                // case "D":
+                //     spriteToInstantiate = letterD;
+                    // break;
             }
 
             // Instantiate the sprite at the correct position
@@ -80,9 +78,10 @@ public class IconScript : MonoBehaviour
             // Scale the sprite object
             spriteObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
 
-            // // Optionally, set a unique identifier on each sprite for easy identification
-            // spriteObject.tag = direction;  // We use the tag as a marker for the direction
+            // Rotate the sprite object (based on direction)
+            spriteObject.transform.rotation = Quaternion.Euler(0f, 0f, rotationAngle);
 
+            // // Optionally, set a unique identifier on each sprite for easy identification
             spawnedIcons.Add(spriteObject);
         }
     }
