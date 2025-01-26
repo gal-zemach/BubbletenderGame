@@ -8,6 +8,10 @@ public class IconScript : MonoBehaviour
     public Sprite leftIcon;
     public Sprite downIcon;
     public Sprite rightIcon;
+    public Sprite letterW;
+    public Sprite letterA;
+    public Sprite letterS;
+    public Sprite letterD;
 
     // This is the Prefab to display the sprites
     public GameObject iconPrefab;
@@ -40,17 +44,29 @@ public class IconScript : MonoBehaviour
 
             switch (direction)
             {
-                case "W":
+                case "U":
                     spriteToInstantiate = upIcon;
                     break;
-                case "A":
+                case "L":
                     spriteToInstantiate = leftIcon;
                     break;
-                case "S":
+                case "Q":
                     spriteToInstantiate = downIcon;
                     break;
-                case "D":
+                case "R":
                     spriteToInstantiate = rightIcon;
+                    break;
+                case "W":
+                    spriteToInstantiate = letterW;
+                    break;
+                case "A":
+                    spriteToInstantiate = letterA;
+                    break;
+                case "S":
+                    spriteToInstantiate = letterS;
+                    break;
+                case "D":
+                    spriteToInstantiate = letterD;
                     break;
             }
 

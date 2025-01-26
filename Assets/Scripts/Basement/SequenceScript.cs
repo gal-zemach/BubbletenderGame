@@ -3,36 +3,34 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class SequenceScript : MonoBehaviour
 {
     public TextMeshProUGUI feedbackText;
+    public TextMeshProUGUI trackerText;
     public MiniGameScript gameScript; 
     public TimerScript timerScript;
     public IconScript iconScript;
+    private float cycleDelay = 0.2f;
 
-    public int successTarget = 3;    
+    // Difficulty Variables
+    public int successTarget = 3;   
+    public int seqLength = 3; 
+    public int playerLevel = 1;
 
-    private List<List<string>> possSequences = new List<List<string>>()
-    {
-        new List<string> { "W", "A", "A", "D", "S", "A" },
-        new List<string> { "W", "D", "W", "A", "S" },
-        new List<string> { "A", "D", "S", "W", "D" },
-        new List<string> { "D", "S", "A", "A", "S"},
-        new List<string> { "W", "W", "S", "S", "D", "A" },
-        new List<string> { "A", "D", "S", "S", "W", "D" }
-    };
+    // Private Variables
+    private List<string> directions = new List<string> { "W", "A", "S", "D", "U", "Q", "L", "R" };
 
     private List<string> correctSequence;
     private int currentIndex = 0;
-    private int listIndex = 0;
     private int successCount = 0;
     private bool sequenceActive = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        feedbackText.text = "Press Space to Start";
+
     }
 
     // Update is called once per frame
@@ -55,7 +53,7 @@ public class SequenceScript : MonoBehaviour
         }
         
         // End the sequence if the timer runs out
-        if (timerScript.timerRunning == false)
+        if (timerScript.overTime == true)
         {
             EndSequence();
         }
@@ -63,15 +61,29 @@ public class SequenceScript : MonoBehaviour
     // Display the Sequence
     public void RunSequence()
     {
-        // Select a Sequence From the Pre-Made List
-        // int randomIndex = Random.Range(0, possSequences.Length);
-        correctSequence = possSequences[listIndex];
+        // Generate a Sequence Based on Target
+        correctSequence = GenerateRandomSequence(seqLength);
 
         // Create the Sprites
         iconScript.CreateIcons(correctSequence);
 
         // Start the Script
         sequenceActive = true;
+        trackerText.text = successCount.ToString() + "/" + successTarget.ToString();
+    }
+
+    private List<string> GenerateRandomSequence(int length)
+    {
+        List<string> sequence = new List<string>();
+
+        for (int i = 0; i < length; i++)
+        {
+            // Randomly pick a direction from the list
+            string randomDirection = directions[Random.Range(0, directions.Count)];
+            sequence.Add(randomDirection);
+        }
+
+        return sequence;
     }
 
     // Gather Player Input
@@ -81,6 +93,10 @@ public class SequenceScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A)) return "A";
         if (Input.GetKeyDown(KeyCode.S)) return "S";
         if (Input.GetKeyDown(KeyCode.D)) return "D";
+        if (Input.GetKeyDown(KeyCode.UpArrow)) return "U";
+        if (Input.GetKeyDown(KeyCode.DownArrow)) return "Q";
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) return "L";
+        if (Input.GetKeyDown(KeyCode.RightArrow)) return "R";
 
         return null;
     }
@@ -109,6 +125,13 @@ public class SequenceScript : MonoBehaviour
             
             else
             {
+                SpriteRenderer currentSpriteRenderer = iconScript.spawnedIcons[currentIndex].GetComponent<SpriteRenderer>();
+                if (currentSpriteRenderer != null)
+                {
+                    // Change the color to green or any color you prefer
+                    currentSpriteRenderer.color = Color.red;
+                }
+
                 ResetLoop();
             }
         }
@@ -119,12 +142,20 @@ public class SequenceScript : MonoBehaviour
            successCount++;
 
             // Change the Feedback Text
-            feedbackText.text = "Correct Sequence: " + successCount.ToString() + "/" + successTarget.ToString();
+            trackerText.text = successCount.ToString() + "/" + successTarget.ToString();
 
             // If the target number of successes has been completed, exit game
             if (successCount == successTarget)
             {
-                feedbackText.text = "All Sequences Complete!";
+                // feedbackText.text = "All Sequences Complete! Press Space to Start Again.";
+                playerLevel++;
+                seqLength++;
+
+                if (playerLevel == 3 || playerLevel == 6 || playerLevel == 9)
+                {
+                    successTarget++;
+                }
+
                 EndSequence();
             }
 
@@ -140,14 +171,33 @@ public class SequenceScript : MonoBehaviour
     {
         // Reset Counters
         currentIndex = 0;
-        listIndex++;
         
-        // ReRun Sequence
+        // Start a coroutine to delay the next sequence
+        StartCoroutine(DelayedRunSequence(cycleDelay));  // 1f is the delay in seconds
+    }
+
+    private IEnumerator DelayedRunSequence(float delay)
+    {
+        // Wait for the specified delay time
+        yield return new WaitForSeconds(delay);
+
+        // After the delay, run the sequence
         RunSequence();
     }
 
     private void EndSequence()
     {
+        StartCoroutine(DelayedLoop(cycleDelay));
+    }
+
+    private IEnumerator DelayedLoop(float delay)
+    {
+        // Wait for the specified delay time
+        yield return new WaitForSeconds(delay);
+
+        // After the delay, run the sequence
+        currentIndex = 0;
+        successCount = 0;
         iconScript.DestroyExistingSprites();
         sequenceActive = false;
         gameScript.OnSequenceCompleted(true);
